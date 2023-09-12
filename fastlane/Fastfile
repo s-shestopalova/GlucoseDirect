@@ -55,9 +55,8 @@ platform :ios do
       type: "appstore",
       git_basic_authorization: Base64.strict_encode64("#{GITHUB_REPOSITORY_OWNER}:#{GH_PAT}"),
       app_identifier: [
-        "com.#{TEAMID}.libre-direct",
-        "com.#{TEAMID}.libre-direct.watchkitapp",
-        "com.#{TEAMID}.libre-direct.watchkitapp.watchkitextension"
+        "com.#{TEAMID}.libre-direct"
+     
       ]
     )
 
@@ -85,18 +84,15 @@ platform :ios do
     )
 
     update_code_signing_settings(
-      path: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
-      profile_name: mapping["com.#{TEAMID}.libre-direct.watchkitapp.watchkitextension"],
-      code_sign_identity: "iPhone Distribution",
-      targets: ["libre-directWatch WatchKit Extension"]
+      path: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj"
+          code_sign_identity: "iPhone Distribution",
+ 
     )
     
     update_code_signing_settings(
       path: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
-      profile_name: mapping["com.#{TEAMID}.libre-direct.watchkitapp"],
-      code_sign_identity: "iPhone Distribution",
-      targets: ["libre-directWatch"]
-    )
+        code_sign_identity: "iPhone Distribution",
+      )
 
     gym(
       export_method: "app-store",
@@ -153,13 +149,10 @@ platform :ios do
       Spaceship::ConnectAPI::BundleIdCapability::Type::NFC_TAG_READING
     ])
 
-    configure_bundle_id("FreeAPSWatch WatchKit Extension", "com.#{TEAMID}.FreeAPS.watchkitapp.watchkitextension", [
-      Spaceship::ConnectAPI::BundleIdCapability::Type::APP_GROUPS,
-      Spaceship::ConnectAPI::BundleIdCapability::Type::HEALTHKIT
+
     ])
     
-    configure_bundle_id("FreeAPSWatch", "com.#{TEAMID}.FreeAPS.watchkitapp", [
-      Spaceship::ConnectAPI::BundleIdCapability::Type::APP_GROUPS
+
     ])
     
   end
@@ -180,10 +173,8 @@ platform :ios do
       force: true,
       git_basic_authorization: Base64.strict_encode64("#{GITHUB_REPOSITORY_OWNER}:#{GH_PAT}"),
       app_identifier: [
-        "com.#{TEAMID}.libre-direct",
-        "com.#{TEAMID}.FreeAPS.watchkitapp.watchkitextension",
-        "com.#{TEAMID}.FreeAPS.watchkitapp",
-      ]
+        "com.#{TEAMID}.libre-direct"
+       ]
     )
   end
 
