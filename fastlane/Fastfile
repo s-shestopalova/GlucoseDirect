@@ -29,7 +29,7 @@ platform :ios do
     setup_ci if ENV['CI']
     
     update_project_team(
-      path: "#{GITHUB_WORKSPACE}/xdrip.xcodeproj",
+      path: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
       teamid: "#{TEAMID}"
     )
 
@@ -47,7 +47,7 @@ platform :ios do
     current_build_number = previous_build_number + 1
 
     increment_build_number(
-      xcodeproj: "#{GITHUB_WORKSPACE}/xdrip.xcodeproj",
+      xcodeproj: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
       build_number: current_build_number
     )      
     
@@ -70,7 +70,7 @@ platform :ios do
     current_build_number = previous_build_number + 1
 
     increment_build_number(
-      xcodeproj: "#{GITHUB_WORKSPACE}/xdrip.xcodeproj",
+      xcodeproj: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
       build_number: current_build_number
     )
     
@@ -79,28 +79,28 @@ platform :ios do
     ]
 
     update_code_signing_settings(
-      path: "#{GITHUB_WORKSPACE}/xdrip.xcodeproj",
+      path: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
       profile_name: mapping["com.#{TEAMID}.xdripswift"],
       code_sign_identity: "iPhone Distribution",
       targets: ["xdrip"]
     )
 
     update_code_signing_settings(
-      path: "#{GITHUB_WORKSPACE}/xdrip.xcodeproj",
+      path: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
       profile_name: mapping["com.#{TEAMID}.xdripswift.xDrip4iOS-Widget"],
       code_sign_identity: "iPhone Distribution",
       targets: ["xDrip4iOS Widget"]
     )
     
     update_code_signing_settings(
-      path: "#{GITHUB_WORKSPACE}/xdrip.xcodeproj",
+      path: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
       profile_name: mapping["com.#{TEAMID}.xdripswift.watchkitapp"],
       code_sign_identity: "iPhone Distribution",
       targets: ["Watch App"]
     )
 
     update_code_signing_settings(
-      path: "#{GITHUB_WORKSPACE}/xdrip.xcodeproj",
+      path: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
       profile_name: mapping["com.#{TEAMID}.xdripswift.watchkitapp.watchkitextension"],
       code_sign_identity: "iPhone Distribution",
       targets: ["Watch App WatchKit Extension"]
