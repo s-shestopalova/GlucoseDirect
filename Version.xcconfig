@@ -1,11 +1,11 @@
 //
 //  Version.xcconfig
-//  xDrip4iO5
+//  GlucoseDirect
 //
 
 // Version [DEFAULT]
-XDRIP_MARKETING_VERSION = 4.11.4
-CURRENT_PROJECT_VERSION = 4188
+GlucoseDirect_MARKETING_VERSION = 1.0.0
+CURRENT_PROJECT_VERSION = 168
 
 // Optional override
 #include? "VersionOverride.xcconfig"
