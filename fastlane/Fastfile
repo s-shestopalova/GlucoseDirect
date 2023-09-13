@@ -39,10 +39,18 @@ platform :ios do
       key_content: "#{FASTLANE_KEY}"
     )
 
+    previous_build_number = latest_testflight_build_number(
+      app_identifier: "com.#{TEAMID}.libre-direct",
+      api_key: api_key,
+    )
 
-    current_build_number = 501
-   
-    
+    current_build_number = previous_build_number + 1
+
+    increment_build_number(
+      xcodeproj: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
+      build_number: current_build_number
+    )  
+
     match(
       type: "appstore",
       git_basic_authorization: Base64.strict_encode64("#{GITHUB_REPOSITORY_OWNER}:#{GH_PAT}"),
@@ -51,11 +59,19 @@ platform :ios do
         "com.#{TEAMID}.libre-direct.Widgets"
       ]
     )
-
   
-    current_build_number = 501
+    previous_build_number = latest_testflight_build_number(
+      app_identifier: "com.#{TEAMID}.libre-direct",
+      api_key: api_key,
+    )
 
-        
+    current_build_number = previous_build_number + 1
+
+    increment_build_number(
+      xcodeproj: "#{GITHUB_WORKSPACE}/GlucoseDirect.xcodeproj",
+      build_number: current_build_number
+    )
+           
     mapping = Actions.lane_context[
       SharedValues::MATCH_PROVISIONING_PROFILE_MAPPING
     ]
