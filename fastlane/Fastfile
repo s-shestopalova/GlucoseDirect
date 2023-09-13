@@ -39,10 +39,7 @@ platform :ios do
       key_content: "#{FASTLANE_KEY}"
     )
 
-  previous_build_number = 500(
-     app_identifier: "com.#{TEAMID}.libre-direct",
-     api_key: api_key,
-   )
+  previous_build_number = 500
 
     current_build_number = previous_build_number + 1
 
@@ -60,10 +57,7 @@ platform :ios do
       ]
     )
 
-    previous_build_number = 500(
-      app_identifier: "com.#{TEAMID}.libre-direct",
-      api_key: api_key,
-    )
+    previous_build_number = 500
 
     current_build_number = previous_build_number + 1
 
